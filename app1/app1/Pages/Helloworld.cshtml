@@ -1,0 +1,23 @@
+﻿@page
+@model app1.Pages.HelloworldModel
+@{
+    ViewData["Title"] = "HelloWWorld";
+
+}
+<h2>HelloWorld</h2>
+
+<h3>The time on the server is @DateTime.Now</h3>
+
+<p>
+
+    Enter your name. 
+</p>
+<div asp-validation-summary="All"></div>"
+<from method="POST">
+    <div>Name: <input asp-for="name"/></div>
+    <input type="submit"/>
+</from>
+
+<div id="result">@this.Model.name</div>
+
+

@@ -8,6 +8,7 @@ namespace app02.Pages
         [BindProperty]
         public float Value { get; set; }
         public float Result;
+        public const double EURO_IN_GBP = 1.15;
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -23,7 +24,7 @@ namespace app02.Pages
         }
         public void OnPost()
         {
-            Result = ((float)(Value * 1.15));
+            Result = ((float)(Value * EURO_IN_GBP));
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\milen\\source\\repos\\co550web\\app1\\app1\\app1.csproj": {}
+    "C:\\Users\\milen\\Source\\Repos\\co550web\\app1\\app1\\app1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\milen\\source\\repos\\co550web\\app1\\app1\\app1.csproj": {
+    "C:\\Users\\milen\\Source\\Repos\\co550web\\app1\\app1\\app1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milen\\source\\repos\\co550web\\app1\\app1\\app1.csproj",
+        "projectUniqueName": "C:\\Users\\milen\\Source\\Repos\\co550web\\app1\\app1\\app1.csproj",
         "projectName": "app1",
-        "projectPath": "C:\\Users\\milen\\source\\repos\\co550web\\app1\\app1\\app1.csproj",
+        "projectPath": "C:\\Users\\milen\\Source\\Repos\\co550web\\app1\\app1\\app1.csproj",
         "packagesPath": "C:\\Users\\milen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milen\\source\\repos\\co550web\\app1\\app1\\obj\\",
+        "outputPath": "C:\\Users\\milen\\Source\\Repos\\co550web\\app1\\app1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\milen\\AppData\\Roaming\\NuGet\\NuGet.Config",

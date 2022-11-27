@@ -1,5 +1,10 @@
-﻿using ContosoUniversity.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using ContosoUniversity.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
+using Microsoft.AspNetCore.Builder;
+using RazorContoso.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
@@ -11,15 +16,14 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
+    app.UseMigrationsEndPoint();
 }
 else
 {
-    app.UseDeveloperExceptionPage();
-    app.UseMigrationsEndPoint();
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
 using (var scope = app.Services.CreateScope())
@@ -27,7 +31,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<SchoolContext>();
-    context.Database.EnsureCreated();
+   
     DbInitializer.Initialize(context);
 }
 
@@ -37,6 +41,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
+
+
 
 app.MapRazorPages();
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContosoUniversity.Models
 {
@@ -16,11 +17,12 @@ namespace ContosoUniversity.Models
         public int StudentID { get; set; }
 
         [DisplayFormat(NullDisplayText = "No grade")]
-        public Nullable<Grades> Grade { get; set; }
+        public Grades Grade { get; set; }
 
         // Navigation propetries
         public virtual Course Course { get; set; }
 
         public virtual Student Student { get; set; }
+        
     }
 }

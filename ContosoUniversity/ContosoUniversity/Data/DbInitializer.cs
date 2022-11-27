@@ -1,7 +1,11 @@
-﻿using ContosoUniversity.Models;
-using System.Diagnostics;
+﻿using ContosoUniversity.Data;
+using ContosoUniversity.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
-namespace ContosoUniversity.Data
+namespace RazorContoso.Data
 {
     public static class DbInitializer
     {
@@ -13,50 +17,231 @@ namespace ContosoUniversity.Data
                 return;   // DB has been seeded
             }
 
-            var students = new Student[]
+            var tabby = new Student
             {
-                new Student{FirstName="Maja",LastName="Michalska",EnrollmentDate=DateTime.Parse("2022-09-01")},
-                new Student{FirstName="Dawid",LastName="Ciesla",EnrollmentDate=DateTime.Parse("2022-09-01")},
-                new Student{FirstName="Natalia",LastName="Marchlewska",EnrollmentDate=DateTime.Parse("2022-09-01")},
-                new Student{FirstName="Leo",LastName="Tabby",EnrollmentDate=DateTime.Parse("2022-09-01")},
-                new Student{FirstName="Basia",LastName="Kolakowska",EnrollmentDate=DateTime.Parse("2022-09-01")},
-                new Student{FirstName="Igor",LastName="Iwko",EnrollmentDate=DateTime.Parse("2022-09-01")},
+                StudentID=71,
+                FirstName = "Leo",
+                LastName = "Tabby",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
             };
 
-            context.Students.AddRange(students);
-            context.SaveChanges();
+            var ciesla = new Student
+            {
+                StudentID=72,
+                FirstName = "Dawid",
+                LastName = "Ciesla",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
+            };
+
+            var iwko = new Student
+            {
+                StudentID=73,
+                FirstName = "Igor",
+                LastName = "Iwko",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
+            };
+
+            var marchlewska = new Student
+            {
+                StudentID = 74,
+                FirstName = "Natalia",
+                LastName = "Marchlewska",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
+            };
+
+            var michalska = new Student
+            {
+                StudentID=75,
+                FirstName = "Maja",
+                LastName = "Michalska",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
+            };
+
+            var lawska = new Student
+            {
+                StudentID=76,
+                FirstName = "Ola",
+                LastName = "Lawska",
+                EnrollmentDate = DateTime.Parse("2022-09-01")
+            };
 
             var courses = new Course[]
-            {
-                new Course{CourseID=1050,Title="Chemistry",Credits=3},
-                new Course{CourseID=4022,Title="Microeconomics",Credits=3},
-                new Course{CourseID=4041,Title="Macroeconomics",Credits=3},
-                new Course{CourseID=1045,Title="Calculus",Credits=4},
-                new Course{CourseID=3141,Title="Trigonometry",Credits=4},
-                new Course{CourseID=2021,Title="Composition",Credits=3},
-                new Course{CourseID=2042,Title="Literature",Credits=4}
-            };
+         {
+                new Course{CourseID=556,CourseCode="CO556", Title="Network Systems",Credits=3},
+                new Course{CourseID=550,CourseCode="CO550", Title="Web Applications",Credits=3},
+                new Course{CourseID=558,CourseCode="CO558", Title="Database Design",Credits=3},
+                new Course{CourseID=567,CourseCode="CO567", Title="Object Oriented SD",Credits=4},
+           
+         };
 
             context.Courses.AddRange(courses);
-            context.SaveChanges();
+
 
             var enrollments = new Enrollment[]
             {
-                new Enrollment{StudentID=1,CourseID=1050,Grade=Grades.A},
-                new Enrollment{StudentID=1,CourseID=4022,Grade=Grades.C},
-                new Enrollment{StudentID=1,CourseID=4041,Grade=Grades.B},
-                new Enrollment{StudentID=2,CourseID=1045,Grade=Grades.B},
-                new Enrollment{StudentID=2,CourseID=3141,Grade=Grades.F},
-                new Enrollment{StudentID=2,CourseID=2021,Grade=Grades.F},
-                new Enrollment{StudentID=3,CourseID=1050},
-                new Enrollment{StudentID=4,CourseID=1050},
-                new Enrollment{StudentID=4,CourseID=4022,Grade=Grades.F},
-                new Enrollment{StudentID=5,CourseID=4041,Grade=Grades.C},
-                new Enrollment{StudentID=6,CourseID=1045},
-                new Enrollment{StudentID=7,CourseID=3141,Grade=Grades.A},
+                new Enrollment
+
+                {  
+                    EnrollmentID=2,
+                    Student = tabby,
+                    CourseID=556,
+                    Grade= Grades.B
+                },
+                new Enrollment
+                {
+                    EnrollmentID=3,
+                    Student = ciesla,
+                    CourseID=556,
+                    Grade = Grades.C
+                },
+                new Enrollment
+                {
+                    EnrollmentID=4,
+                    Student = iwko,
+                    CourseID=556,
+                    Grade = Grades.A
+                },
+                new Enrollment
+                {
+                    EnrollmentID=5,
+                    Student = michalska,
+                      CourseID=556,
+                    Grade = Grades.F
+                },
+                new Enrollment
+                {
+                    EnrollmentID = 6,
+                    Student = marchlewska,
+                    CourseID=556,
+                    Grade = Grades.D
+                },
+                new Enrollment
+                {
+                    EnrollmentID=7,
+                    Student = lawska,
+                    CourseID=556,
+                    Grade = Grades.B
+                },
+
+//CO550
+                new Enrollment
+                {
+                    Student = tabby,
+                    CourseID=550,
+                    Grade= Grades.D
+                },
+                new Enrollment
+                {
+                    Student = ciesla,
+                    CourseID=550,
+                    Grade = Grades.A
+                },
+                new Enrollment
+                {
+                    Student = iwko,
+                    CourseID=550,
+                    Grade = Grades.B
+                },
+                new Enrollment
+                {
+                    Student = michalska,
+                      CourseID=550,
+                    Grade = Grades.F
+                },
+                new Enrollment
+                {
+                    Student = marchlewska,
+                      CourseID=550,
+                    Grade = Grades.A
+                },
+                new Enrollment
+                {
+                    Student = lawska,
+                      CourseID=550,
+                    Grade = Grades.B
+                },
+
+///CO558
+                new Enrollment
+                {
+                    Student = tabby,
+                    CourseID=558,
+                    Grade= Grades.B
+                },
+                new Enrollment
+                {
+                    Student = ciesla,
+                    CourseID=556,
+                    Grade = Grades.C
+                },
+                new Enrollment
+                {
+                    Student = iwko,
+                    CourseID=556,
+                    Grade = Grades. A
+                },
+                new Enrollment
+                {
+                    Student = michalska,
+                      CourseID=556,
+                    Grade = Grades.D
+                },
+                new Enrollment
+                {
+                    Student = marchlewska,
+                      CourseID=556,
+                    Grade = Grades.B
+                },
+                new Enrollment
+                {
+                    Student = lawska,
+                      CourseID=556,
+                    Grade = Grades.A
+                },
+
+
+
+///CO567
+                new Enrollment
+                {
+                    Student = tabby,
+                    CourseID=567,
+                    Grade= Grades.A
+                },
+                new Enrollment
+                {
+                    Student = ciesla,
+                    CourseID=567,
+                    Grade = Grades.B
+                },
+                new Enrollment
+                {
+                    Student = iwko,
+                    CourseID=567,
+                    Grade = Grades.C
+                },
+                new Enrollment
+                {
+                    Student = michalska,
+                      CourseID=567,
+                    Grade = Grades.A
+                },
+                new Enrollment
+                {
+                    Student = marchlewska,
+                      CourseID=567,
+                    Grade = Grades.F
+                },
+                new Enrollment
+                {
+                    Student = lawska,
+                      CourseID=567,
+                    Grade = Grades.B
+                },
+
             };
 
-            context.Enrollments.AddRange(enrollments);
+            context.AddRange(enrollments);
             context.SaveChanges();
         }
     }

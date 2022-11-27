@@ -6,8 +6,8 @@ namespace ContosoUniversity.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
-        public string CourseCode { get; set; }
-        public string Title { get; set; }
+        public string CourseCode { get; set; } = String.Empty;
+        public string Title { get; set; } = String.Empty;
         public int Credits { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }

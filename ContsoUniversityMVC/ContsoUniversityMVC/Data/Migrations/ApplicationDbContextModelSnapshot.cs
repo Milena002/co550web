@@ -62,7 +62,7 @@ namespace ContsoUniversityMVC.Data.Migrations
 
             modelBuilder.Entity("ContosoUniversityMVC.Models.Student", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("StudentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -76,7 +76,7 @@ namespace ContsoUniversityMVC.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("StudentID");
 
                     b.ToTable("Students");
                 });

@@ -30,7 +30,7 @@ namespace RazorContoso.Data
                 StudentID=72,
                 FirstName = "Dawid",
                 LastName = "Ciesla",
-                EnrollmentDate = DateTime.Parse("2022-09-01")
+                EnrollmentDate = DateTime.Parse("2022-09-06")
             };
 
             var iwko = new Student
@@ -38,7 +38,7 @@ namespace RazorContoso.Data
                 StudentID=73,
                 FirstName = "Igor",
                 LastName = "Iwko",
-                EnrollmentDate = DateTime.Parse("2022-09-01")
+                EnrollmentDate = DateTime.Parse("2022-09-09")
             };
 
             var marchlewska = new Student
@@ -46,7 +46,7 @@ namespace RazorContoso.Data
                 StudentID = 74,
                 FirstName = "Natalia",
                 LastName = "Marchlewska",
-                EnrollmentDate = DateTime.Parse("2022-09-01")
+                EnrollmentDate = DateTime.Parse("2022-10-01")
             };
 
             var michalska = new Student
@@ -54,7 +54,7 @@ namespace RazorContoso.Data
                 StudentID=75,
                 FirstName = "Maja",
                 LastName = "Michalska",
-                EnrollmentDate = DateTime.Parse("2022-09-01")
+                EnrollmentDate = DateTime.Parse("2022-09-23")
             };
 
             var lawska = new Student

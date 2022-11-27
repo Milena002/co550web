@@ -242,7 +242,7 @@ namespace RazorContoso.Data
             };
 
             context.AddRange(enrollments);
-            context.SaveChanges();
+            _ = _ = context.SaveChanges();
         }
     }
 }

@@ -65,12 +65,67 @@ namespace RazorContoso.Data
                 EnrollmentDate = DateTime.Parse("2022-09-01")
             };
 
+            ///instructors
+            var upton = new Instructor
+            {
+                InstructorID = 1,
+                FirstName = "Noah",
+                LastName = "Upton",
+                HireDate = DateTime.Parse("2008-03-01")
+            };
+
+            var smith = new Instructor
+            {
+                InstructorID = 2,
+                FirstName = "George",
+                LastName = "Smith",
+                HireDate = DateTime.Parse("2013-08-06")
+            };
+
+            var allen = new Instructor
+            {
+                InstructorID = 3,
+                FirstName = "Josh",
+                LastName = "Allen",
+                HireDate = DateTime.Parse("2018-12-01")
+            };
+
+            var bush = new Instructor
+            {
+                InstructorID = 4,
+                FirstName = "Lewis",
+                LastName = "Bush",
+                HireDate = DateTime.Parse("2021-09-15")
+            };
+
+            var officeAssignments = new OfficeAssignment[]
+            {
+                new OfficeAssignment {
+                    Instructor = upton,
+                    Location = "Smith 17" },
+                new OfficeAssignment {
+                    Instructor = bush,
+                    Location = "Gowan 27" },
+                new OfficeAssignment {
+                    Instructor = allen,
+                    Location = "Thompson 304" },
+            };
+            context.AddRange(officeAssignments);
+
+            var IT = new Department
+            {
+                DepartmentID = 2,
+                Name = "IT",
+                Budget = 350000,
+                StartDate = DateTime.Parse("2007-09-01"),
+                Administrator = upton
+            };
             var courses = new Course[]
          {
-                new Course{CourseID=556,CourseCode="CO556", Title="Network Systems",Credits=3},
-                new Course{CourseID=550,CourseCode="CO550", Title="Web Applications",Credits=3},
-                new Course{CourseID=558,CourseCode="CO558", Title="Database Design",Credits=3},
-                new Course{CourseID=567,CourseCode="CO567", Title="Object Oriented SD",Credits=4},
+                new Course{CourseID=556,CourseCode="CO556", Title="Network Systems",Credits=4,DepartmentID=1, Department=IT, Instructors = new List<Instructor>{upton} },
+                new Course{CourseID=550,CourseCode="CO550", Title="Web Applications",Credits=4 ,DepartmentID=1, Department=IT, Instructors = new List<Instructor>{smith} },
+                new Course{CourseID=558,CourseCode="CO558", Title="Database Design",Credits=4 ,DepartmentID=1, Department=IT, Instructors = new List<Instructor>{allen} },
+                new Course{CourseID=567,CourseCode="CO567", Title="Object Oriented SD",Credits=4 ,DepartmentID=1, Department=IT, Instructors = new List<Instructor>{bush} },
            
          };
 
